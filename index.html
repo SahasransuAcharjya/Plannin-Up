@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plannin' Up</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(120deg, #7879FF, #BFF4BE);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .app-container {
+            background: linear-gradient(120deg, #fff, #7879FF);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #4A4E69;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input[type="text"], input[type="datetime-local"] {
+            padding: 10px;
+            font-size: 1rem;
+            border: 2px solid #9face6;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        button {
+            background-color: #4A4E69;
+            color: white;
+            font-size: 1rem;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #22223B;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            border: none;
+            background: #9face6;
+            color: #fff;
+            transition: background 0.3s ease;
+        }
+
+        .tab:hover {
+            background: #6A65F1;
+        }
+
+        .tab.active {
+            background: #4A4E69;
+            color: white;
+        }
+
+        #task-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .task-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border: 2px solid #4A4E69;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .task-item.completed {
+            text-decoration: line-through;
+            color: #c1c1c1;
+            background-color: #E6E6FA;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .task-item button {
+            font-size: 0.8rem;
+            padding: 5px 10px;
+            background: #74ebd5;
+            border: none;
+            color: #ffffff;
+            border-radius: 6px;
+            transition: background 0.3s ease;
+        }
+
+        .task-item button:hover {
+            background: #41B8A6;
+        }
+    </style>
+</head>
+<body>
+<div class="app-container">
+    <h1>Plannin' Up <img src="images/icon.png"> </h1>
+    <form id="task-form">
+        <input type="text" id="task-input" placeholder="Enter Task" required>
+        <input type="datetime-local" id="task-datetime" required>
+        <button type="submit">Add Task</button>
+    </form>
+    <div class="tabs">
+        <button class="tab active" data-tab="all">All Tasks</button>
+        <button class="tab" data-tab="completed">Completed</button>
+        <button class="tab" data-tab="pending">Pending</button>
+    </div>
+    <ul id="task-list"></ul>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
